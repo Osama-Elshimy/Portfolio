@@ -1,0 +1,64 @@
+<section id='projects' class='projects section'>
+	<h2 class='h2-heading'>MY PROJECTS</h2>
+
+	<div class='projects__filter'>
+		<ul>
+			<li data-category='all'>All Projects</li>
+			<li data-category='html-css'>HTML & CSS</li>
+			<li data-category='javascript'>JavaScript</li>
+			<li data-category='react'>React</li>
+			<li data-category='node'>Node</li>
+			<!-- <li data-category="full-stack">Full Stack (MERN)</li> -->
+		</ul>
+	</div>
+
+	<div class='projects__list'>
+		<ul>
+			<li data-categories='html-css'>
+				<h3 class='h3-heading'>Omnifood</h3>
+				<img />
+			</li>
+			<li data-categories='javascript'>
+				<h3 class='h3-heading'>Forkify</h3>
+			</li>
+			<li data-categories='react'>
+				<h3 class='h3-heading'>YourCar</h3>
+			</li>
+			<!-- Add more project items -->
+		</ul>
+	</div>
+</section>
+
+<script defer>
+	// Get references to the filter items and project items
+	const filterItems = document.querySelectorAll('.projects__filter li');
+	const projectItems = document.querySelectorAll('.projects__list li');
+
+	// Attach click event listeners to the filter items
+	filterItems.forEach(item => {
+		item.addEventListener('click', event => {
+			const selectedCategory = event.target.dataset.category;
+
+			// Remove the active class from all filter items
+			filterItems.forEach(filterItem => {
+				filterItem.classList.remove('active');
+			});
+
+			// Add the active class to the clicked filter item
+			event.target.classList.add('active');
+
+			// Show/hide the project items based on the selected category
+			projectItems.forEach(projectItem => {
+				const itemCategories = projectItem.dataset.categories.split(' ');
+				if (
+					selectedCategory === 'all' ||
+					itemCategories.includes(selectedCategory)
+				) {
+					projectItem.style.display = 'block';
+				} else {
+					projectItem.style.display = 'none';
+				}
+			});
+		});
+	});
+</script>

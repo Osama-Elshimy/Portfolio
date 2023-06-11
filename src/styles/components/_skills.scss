@@ -1,0 +1,28 @@
+.skills {
+	grid-template-columns: 2fr 5fr;
+	background-color: var(--color-grey);
+
+	h2 {
+		grid-column: 1 / -1;
+	}
+}
+
+.skills__list {
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+
+	gap: 2.4rem;
+}
+
+.skills__item {
+	font-size: var(--font-size-24);
+	font-weight: var(--font-weight-semi-bold);
+	user-select: none;
+	cursor: pointer;
+
+	transition: all var(--transition-timing);
+
+	&:hover {
+		text-shadow: 0 0 5px var(--color-green);
+	}
+}
