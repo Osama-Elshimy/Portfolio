@@ -1,217 +1,165 @@
-.projects {
-	@media (max-width: 600px) {
-		max-width: 90%;
-	}
+img {
+	max-width: 100%;
 }
 
-.app__work-filter {
-	padding-top: 50px;
-	padding-bottom: 50px;
+.projects h3 {
+	grid-column: 1 / -1;
+	margin-inline: auto;
+	user-select: none;
+}
+
+.accordion {
+	--_button-size: 3rem;
+	--_panel-padding: 0.75rem;
+	--_panel-gap: 1rem;
+
+	justify-self: center;
 	display: flex;
-	flex-direction: row;
-	justify-content: center;
-	align-items: center;
-	flex-wrap: wrap;
+	flex-direction: column;
+	gap: 1rem;
 
-	.app__work-filter-item {
-		padding: 0.5rem 1rem;
-		font-weight: 500;
+	margin-inline: auto;
+	margin-bottom: 3.6rem;
 
-		@media (max-width: 450px) {
-			padding: 0.3rem 0.7rem;
-			font-size: 14px;
-		}
+	contain: content;
+	/* added padding to prevent issue with outlines */
+	padding: 0.5rem;
+}
 
-		//
-		$border: 3px;
-
-		position: relative;
-
-		background-clip: padding-box;
-		border: solid $border transparent;
-
-		background-color: #0f1624;
-		color: #fff;
-		border-radius: 20px;
-		-webkit-border-radius: 20px;
-		-moz-border-radius: 20px;
-		-ms-border-radius: 20px;
-		-o-border-radius: 20px;
-
-		&:before {
-			content: '';
-			position: absolute;
-			top: 0;
-			right: 0;
-			bottom: 0;
-			left: 0;
-			z-index: -1;
-			margin: -$border;
-			border-radius: inherit;
-			background: #00dbd8;
-		}
-		//
-
-		cursor: pointer;
-		transition: all 0.3s ease;
-		margin: 0.5rem;
-
-		&:hover {
-			background-color: #00dbd8;
-			color: #fff;
-		}
-
-		@media screen and (min-width: 2000px) {
-			padding: 1rem 2rem;
-			border-radius: 0.85rem;
-		}
-		border-radius: 1rem;
-		-webkit-border-radius: 1rem;
-		-moz-border-radius: 1rem;
-		-ms-border-radius: 1rem;
-		-o-border-radius: 1rem;
-	}
-
-	.item-active {
-		background-color: #00dbd8;
-		color: #fff;
+@media (min-width: 50em) {
+	.accordion {
+		flex-direction: row;
+		height: 40rem;
+		width: 90rem;
 	}
 }
 
-.app__work-portfolio {
-	display: flex;
-	flex-wrap: wrap;
-	justify-content: center;
-	align-items: center;
+.accordion-panel {
+	position: relative;
+	isolation: isolate;
+	flex-basis: calc((var(--_panel-padding) * 2) + var(--_button-size));
+	overflow: hidden;
+	padding: var(--_panel-padding);
+	padding-right: calc(var(--_panel-padding) * 4);
+	border-radius: calc(((var(--_panel-padding) * 2) + var(--_button-size)) / 2);
+	cursor: pointer;
+}
 
-	.app__work-item {
-		// width: 270px;
-		width: 360px;
-
-		@media (max-width: 991px) {
-			width: 280px;
-		}
-		@media (max-width: 800px) {
-			width: 400px;
-		}
-
-		flex-direction: column;
-
-		margin: 2rem;
-		padding: 1rem;
-		border-radius: 0.5rem;
-		background-color: transparent;
-		color: #fff;
-		box-shadow: 0 0 12px rgba(255, 255, 255, 0.15);
-
-		cursor: pointer;
-		transition: all 0.3s ease;
-
-		&:hover {
-			box-shadow: 0 0 25px rgba(255, 255, 255, 0.4);
-		}
-
-		@media screen and (min-width: 2000px) {
-			width: 470px;
-			padding: 1.25rem;
-			border-radius: 0.75rem;
-		}
-
-		@media screen and (max-width: 300px) {
-			width: 100%;
-			margin: 1rem;
-		}
+@media (prefers-reduced-motion: no-preference) {
+	.accordion-panel {
+		transition: all 500ms, flex-grow 500ms;
 	}
 }
 
-.app__work-img {
-	width: 100%;
-	height: 260px;
+.accordion-panel:nth-of-type(odd) {
+	--_panel-color: hsl(160, 70%, 50%);
+}
+
+.accordion-panel:nth-of-type(even) {
+	--_panel-color: hsl(184, 70%, 50%);
+}
+
+/* .accordion-panel:nth-of-type(3) {
+			--_panel-color: hsl(220, 70%, 50%);
+		}
+		.accordion-panel:nth-of-type(4) {
+			--_panel-color: hsl(350, 70%, 50%);
+		}
+		.accordion-panel:nth-of-type(5) {
+			--_panel-color: hsl(20, 70%, 50%);
+		} */
+
+.accordion-panel:has([aria-expanded='true']) {
+	/* flex-basis: clamp(10rem, 30vh, 15rem); */
+	flex-basis: 40rem;
+	flex-grow: 1;
+}
+
+.accordion-trigger {
+	outline: 0;
+}
+
+.accordion-panel:focus-within {
+	outline: 3px solid var(--_panel-color);
+	outline-offset: 4px;
+}
+
+.accordion-content > p {
+	transform: translateY(2rem);
+	opacity: 0;
+
+	margin-left: calc(var(--_button-size) + var(--_panel-gap));
+	margin-top: 10rem;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+	.accordion-panel:has([aria-expanded='true']) p {
+		transition: transform 400ms 400ms, opacity 400ms 400ms;
+	}
+}
+
+.accordion-title {
+	font-size: var(--font-size-15);
+	font-weight: var(----font-weight-bold);
 
 	position: relative;
+	isolation: isolate;
 
-	img {
-		width: 100%;
-		height: 100%;
-		border-radius: 0.5rem;
-		object-fit: cover;
-	}
+	display: grid;
+	align-items: center;
+}
 
-	@media screen and (min-width: 2000px) {
-		height: 350px;
-	}
-
-	@media (max-width: 991px) {
-		height: 200px;
-	}
-
-	@media (max-width: 800px) {
-		height: 270px;
-	}
-
-	@media (max-width: 600px) {
-		height: 200px;
+@media (max-width: 45em) {
+	.accordion-title::after {
+		content: '';
+		position: absolute;
+		left: calc((var(--_panel-gap) + var(--_button-size)) * -1);
+		width: calc(100% + (var(--_button-size) * 2));
+		height: var(--_button-size);
+		background: hsl(0 0% 0% / 0.5);
+		z-index: -1;
+		border-radius: 100vw;
 	}
 }
 
-.app__work-hover {
+.accordion-image {
 	position: absolute;
-	top: 0;
-	left: 0;
-	bottom: 0;
-	right: 0;
+	inset: 0;
 	width: 100%;
 	height: 100%;
-	background-color: rgba(0, 0, 0, 0.5);
+	object-fit: cover;
+	z-index: -1;
 
-	border-radius: 0.5rem;
-	opacity: 0;
-	transition: all 0.3s ease;
-
-	div {
-		width: 50px;
-		height: 50px;
-		border-radius: 50%;
-		background-color: rgba(0, 0, 0, 0.5);
-		color: #fff;
-
-		margin: 1rem;
-		font-family: var(--font-base);
-		font-weight: 800;
-		cursor: pointer;
-		transition: all 0.3s ease;
-
-		svg {
-			width: 50%;
-			height: 50%;
-			color: var(--white-color);
-		}
-	}
+	transition: filter 500ms;
+	cursor: pointer;
 }
 
-.app__work-content {
-	padding: 0.5rem;
-	width: 100%;
-	position: relative;
-	flex-direction: column;
-	text-align: center;
+.accordion-panel:has([aria-expanded='true']) .accordion-image:hover {
+	/* TODO: ONLY WHEN HOVERED OVER */
+	filter: brightness(0.5);
+}
 
-	h4 {
-		margin-top: 2rem;
-		line-height: 1.5;
+.accordion-panel:has([aria-expanded='true']):hover p {
+	transform: translateY(0);
+	opacity: 1;
+}
 
-		@media screen and (min-width: 2000px) {
-			margin-top: 3rem;
-		}
-	}
+.accordion-trigger {
+	display: flex;
+	align-items: center;
+	gap: var(--_panel-gap);
+	flex-direction: row-reverse;
+	background: transparent;
+	border: 0;
+	padding: 0;
+}
 
-	.app__work-tag {
-		position: absolute;
-
-		padding: 0.5rem 1rem;
-		border-radius: 10px;
-		background-color: #0f1624;
-		color: #fff;
-		top: -25px;
-	}
+.accordion-icon {
+	fill: var(--_panel-color);
+	background: hsl(0 0% 0% / 0.55);
+	width: var(--_button-size);
+	aspect-ratio: 1 / 1;
+	padding: 0.75rem;
+	border-radius: 50%;
+	z-index: 10;
 }

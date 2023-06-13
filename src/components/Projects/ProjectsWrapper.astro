@@ -1,0 +1,66 @@
+---
+import ActiveProjectItem from './ActiveProjectItem.astro';
+
+import ProjectItem from './ProjectItem.astro';
+---
+
+<div class='accordion'>
+	<!-- children will go here -->
+	<slot />
+
+	<!-- 
+
+	<ProjectItem imageSrc='/images/projects/forkify.jpg' projectName='Forkify' />
+	<ProjectItem
+		imageSrc='/images/projects/bankist-website.jpg'
+		projectName='Bankist Website'
+	/>
+	<ProjectItem imageSrc='/images/projects/bankist.jpg' projectName='Bankist' />
+
+	<ProjectItem imageSrc='/images/projects/mapty.jpg' projectName='Mapty' />
+	<ProjectItem
+		imageSrc='/images/projects/pig-game.jpg'
+		projectName='Pig Game'
+	/>
+	<ProjectItem
+		imageSrc='/images/projects/kanban-board.jpg'
+		projectName='Kanban Board'
+	/>
+	<ProjectItem imageSrc='/images/projects/relaxer.jpg' projectName='Relaxer' />
+
+	<ProjectItem
+		imageSrc='/images/projects/expenses.jpg'
+		projectName='Expenses Tracker'
+	/>
+	<ProjectItem imageSrc='/images/projects/your-car.jpg' projectName='YourCar' /> -->
+</div>
+
+<script>
+	const accordion = document.querySelector('.accordion');
+
+	accordion.addEventListener('click', e => {
+		const activePanel = e.target.closest('.accordion-panel');
+		if (!activePanel) return;
+		toggleAccordion(activePanel);
+	});
+
+	function toggleAccordion(panelToActivate) {
+		const buttons = panelToActivate.parentElement.querySelectorAll('button');
+		const contents =
+			panelToActivate.parentElement.querySelectorAll('.accordion-content');
+
+		buttons.forEach(button => {
+			button.setAttribute('aria-expanded', false);
+		});
+
+		contents.forEach(content => {
+			content.setAttribute('aria-hidden', true);
+		});
+
+		panelToActivate.querySelector('button').setAttribute('aria-expanded', true);
+
+		panelToActivate
+			.querySelector('.accordion-content')
+			.setAttribute('aria-hidden', false);
+	}
+</script>

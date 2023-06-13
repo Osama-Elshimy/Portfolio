@@ -1,0 +1,34 @@
+---
+const { projectName, projectDescription, imageSrc } = Astro.props;
+---
+
+<div class='accordion-panel'>
+	<h2 id='panel2-title'>
+		<button
+			class='accordion-trigger'
+			aria-expanded='false'
+			aria-controls='panel2-content'>
+			<span class='accordion-title'>{projectName}</span>
+
+			<svg aria-hidden='true' class='accordion-icon'>
+				<use xlink:href='#anchor'></use>
+			</svg>
+		</button>
+	</h2>
+
+	<div
+		role='region'
+		aria-labelledby='panel2-title'
+		aria-hidden='true'
+		class='accordion-content'
+		id='panel2-content'>
+		<p>
+			{projectDescription}
+		</p>
+		<img
+			class='accordion-image'
+			src={imageSrc}
+			alt='closeup of a metal chain connected to a metal ring in the ground'
+		/>
+	</div>
+</div>
