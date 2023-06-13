@@ -1,11 +1,20 @@
-img {
+img,
+svg {
 	max-width: 100%;
 }
 
-.projects h3 {
-	grid-column: 1 / -1;
-	margin-inline: auto;
-	user-select: none;
+.projects {
+	grid-template-columns: 1fr;
+	h3 {
+		grid-column: 1 / -1;
+		margin-inline: auto;
+		user-select: none;
+		transition: all var(--transition-timing);
+
+		&:hover {
+			text-shadow: 0 0 5px var(--color-green);
+		}
+	}
 }
 
 .accordion {
@@ -16,10 +25,11 @@ img {
 	justify-self: center;
 	display: flex;
 	flex-direction: column;
-	gap: 1rem;
+	gap: 2.4rem;
 
+	width: 85vw;
 	margin-inline: auto;
-	margin-bottom: 3.6rem;
+	margin-bottom: 4.8rem;
 
 	contain: content;
 	/* added padding to prevent issue with outlines */
@@ -29,8 +39,11 @@ img {
 @media (min-width: 50em) {
 	.accordion {
 		flex-direction: row;
+		gap: 1.2rem;
 		height: 40rem;
-		width: 90rem;
+		width: 85vw;
+
+		// min-width: 80rem;
 	}
 }
 
@@ -45,12 +58,6 @@ img {
 	cursor: pointer;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-	.accordion-panel {
-		transition: all 500ms, flex-grow 500ms;
-	}
-}
-
 .accordion-panel:nth-of-type(odd) {
 	--_panel-color: hsl(160, 70%, 50%);
 }
@@ -59,20 +66,15 @@ img {
 	--_panel-color: hsl(184, 70%, 50%);
 }
 
-/* .accordion-panel:nth-of-type(3) {
-			--_panel-color: hsl(220, 70%, 50%);
-		}
-		.accordion-panel:nth-of-type(4) {
-			--_panel-color: hsl(350, 70%, 50%);
-		}
-		.accordion-panel:nth-of-type(5) {
-			--_panel-color: hsl(20, 70%, 50%);
-		} */
-
 .accordion-panel:has([aria-expanded='true']) {
-	/* flex-basis: clamp(10rem, 30vh, 15rem); */
-	flex-basis: 40rem;
+	flex-basis: clamp(10rem, 30vh, 15rem);
 	flex-grow: 1;
+}
+
+@media (max-width: 50em) {
+	.accordion-panel:has([aria-expanded='true']) {
+		flex-basis: 45rem;
+	}
 }
 
 .accordion-trigger {
@@ -84,17 +86,41 @@ img {
 	outline-offset: 4px;
 }
 
-.accordion-content > p {
-	transform: translateY(2rem);
-	opacity: 0;
+.accordion-content {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	p {
+		transform: translateY(2rem);
+		opacity: 0;
+		visibility: hidden;
+		pointer-events: none;
 
-	margin-left: calc(var(--_button-size) + var(--_panel-gap));
-	margin-top: 10rem;
-}
+		margin-top: 13rem;
+		transition: all var(--transition-timing);
+	}
 
-@media (prefers-reduced-motion: no-preference) {
-	.accordion-panel:has([aria-expanded='true']) p {
-		transition: transform 400ms 400ms, opacity 400ms 400ms;
+	a:is(:link, :visited) {
+		display: flex;
+		align-items: center;
+		gap: 1.2rem;
+		color: var(--color-white);
+		font-size: var(--font-size-20);
+
+		transition: all var(--transition-timing);
+	}
+
+	a:is(:hover, :active) {
+		color: var(--color-green);
+	}
+
+	&:has(a:hover) .accordion-image {
+		// filter: brightness(0.1);
+	}
+
+	svg {
+		width: 3.6rem;
 	}
 }
 
@@ -109,19 +135,6 @@ img {
 	align-items: center;
 }
 
-@media (max-width: 45em) {
-	.accordion-title::after {
-		content: '';
-		position: absolute;
-		left: calc((var(--_panel-gap) + var(--_button-size)) * -1);
-		width: calc(100% + (var(--_button-size) * 2));
-		height: var(--_button-size);
-		background: hsl(0 0% 0% / 0.5);
-		z-index: -1;
-		border-radius: 100vw;
-	}
-}
-
 .accordion-image {
 	position: absolute;
 	inset: 0;
@@ -134,14 +147,16 @@ img {
 	cursor: pointer;
 }
 
-.accordion-panel:has([aria-expanded='true']) .accordion-image:hover {
+.accordion-panel:has([aria-expanded='true']):hover {
 	/* TODO: ONLY WHEN HOVERED OVER */
-	filter: brightness(0.5);
+	filter: brightness(0.3);
 }
 
 .accordion-panel:has([aria-expanded='true']):hover p {
 	transform: translateY(0);
 	opacity: 1;
+	visibility: visible;
+	pointer-events: auto;
 }
 
 .accordion-trigger {
@@ -162,4 +177,29 @@ img {
 	padding: 0.75rem;
 	border-radius: 50%;
 	z-index: 10;
+}
+
+@media (max-width: 45em) {
+	.accordion-title::after {
+		content: '';
+		position: absolute;
+		left: calc((var(--_panel-gap) + var(--_button-size)) * -1);
+		width: calc(100% + (var(--_button-size) * 2));
+		height: var(--_button-size);
+		background: hsl(0 0% 0% / 0.5);
+		z-index: -1;
+		border-radius: 100vw;
+	}
+}
+
+@media (prefers-reduced-motion: no-preference) {
+	.accordion-panel {
+		transition: all 500ms, flex-grow 500ms;
+	}
+}
+
+@media (prefers-reduced-motion: no-preference) {
+	.accordion-panel:has([aria-expanded='true']) p {
+		transition: transform 400ms 400ms, opacity 400ms 400ms;
+	}
 }
