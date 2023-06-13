@@ -55,7 +55,8 @@
 	}
 
 	.header {
-		padding: 0;
+		padding-block: 0;
+		padding-inline: max(2vw, 2rem);
 	}
 
 	.header::before {
@@ -120,10 +121,6 @@
 	@media (max-width: 450px) {
 		.container {
 			padding-inline: 1rem;
-		}
-
-		.header {
-			padding-inline: 2rem;
 		}
 
 		.bio__pic {

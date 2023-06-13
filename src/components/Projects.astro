@@ -1,64 +1,260 @@
-<section id='projects' class='projects section'>
-	<h2 class='h2-heading'>MY PROJECTS</h2>
-
-	<div class='projects__filter'>
-		<ul>
-			<li data-category='all'>All Projects</li>
-			<li data-category='html-css'>HTML & CSS</li>
-			<li data-category='javascript'>JavaScript</li>
-			<li data-category='react'>React</li>
-			<li data-category='node'>Node</li>
-			<!-- <li data-category="full-stack">Full Stack (MERN)</li> -->
-		</ul>
-	</div>
-
-	<div class='projects__list'>
-		<ul>
-			<li data-categories='html-css'>
-				<h3 class='h3-heading'>Omnifood</h3>
-				<img />
-			</li>
-			<li data-categories='javascript'>
-				<h3 class='h3-heading'>Forkify</h3>
-			</li>
-			<li data-categories='react'>
-				<h3 class='h3-heading'>YourCar</h3>
-			</li>
-			<!-- Add more project items -->
-		</ul>
+<section id='projects'>
+	<div class='options'>
+		<div
+			class='option active'
+			style='--optionBackground:url(/images/projects/Omnifood.png);'>
+			<div class='shadow'></div>
+			<div class='label'>
+				<div class='icon'>
+					<i class='fas fa-walking'></i>
+				</div>
+				<div class='info'>
+					<div class='main'>Blonkisoaz</div>
+					<div class='sub'>Omuke trughte a otufta</div>
+				</div>
+			</div>
+		</div>
+		<div
+			class='option'
+			style='--optionBackground:url(/images/projects/forkify.png);'>
+			<div class='shadow'></div>
+			<div class='label'>
+				<div class='icon'>
+					<i class='fas fa-snowflake'></i>
+				</div>
+				<div class='info'>
+					<div class='main'>Oretemauw</div>
+					<div class='sub'>Omuke trughte a otufta</div>
+				</div>
+			</div>
+		</div>
+		<div
+			class='option'
+			style='--optionBackground:url(https://66.media.tumblr.com/5af3f8303456e376ceda1517553ba786/tumblr_o4986gakjh1qho82wo1_1280.jpg);'>
+			<div class='shadow'></div>
+			<div class='label'>
+				<div class='icon'>
+					<i class='fas fa-tree'></i>
+				</div>
+				<div class='info'>
+					<div class='main'>Iteresuselle</div>
+					<div class='sub'>Omuke trughte a otufta</div>
+				</div>
+			</div>
+		</div>
+		<div
+			class='option'
+			style='--optionBackground:url(https://66.media.tumblr.com/5516a22e0cdacaa85311ec3f8fd1e9ef/tumblr_o45jwvdsL11qho82wo1_1280.jpg);'>
+			<div class='shadow'></div>
+			<div class='label'>
+				<div class='icon'>
+					<i class='fas fa-tint'></i>
+				</div>
+				<div class='info'>
+					<div class='main'>Idiefe</div>
+					<div class='sub'>Omuke trughte a otufta</div>
+				</div>
+			</div>
+		</div>
+		<div
+			class='option'
+			style='--optionBackground:url(https://66.media.tumblr.com/f19901f50b79604839ca761cd6d74748/tumblr_o65rohhkQL1qho82wo1_1280.jpg);'>
+			<div class='shadow'></div>
+			<div class='label'>
+				<div class='icon'>
+					<i class='fas fa-sun'></i>
+				</div>
+				<div class='info'>
+					<div class='main'>Inatethi</div>
+					<div class='sub'>Omuke trughte a otufta</div>
+				</div>
+			</div>
+		</div>
 	</div>
 </section>
 
-<script defer>
-	// Get references to the filter items and project items
-	const filterItems = document.querySelectorAll('.projects__filter li');
-	const projectItems = document.querySelectorAll('.projects__list li');
+<!-- <a href='http://victorofvalencia-blog.tumblr.com' target='_blank' class='credit'
+	>Photos from Victor of Valencia on tumblr</a
+> -->
 
-	// Attach click event listeners to the filter items
-	filterItems.forEach(item => {
-		item.addEventListener('click', event => {
-			const selectedCategory = event.target.dataset.category;
+<style lang='scss'>
+	$optionDefaultColours: #ed5565, #fc6e51, #ffce54, #2ecc71, #5d9cec, #ac92ec;
 
-			// Remove the active class from all filter items
-			filterItems.forEach(filterItem => {
-				filterItem.classList.remove('active');
-			});
+	body {
+		// display: flex;
+		// flex-direction: row;
+		// justify-content: center;
+		// align-items: center;
+		// overflow: hidden;
+		// height: 100vh;
 
-			// Add the active class to the clicked filter item
-			event.target.classList.add('active');
+		font-family: 'Roboto', sans-serif;
+		transition: 0.25s;
+		// @include dark {
+		// 	background: #232223;
+		// 	color: white;
+		// }
+		.credit {
+			position: absolute;
+			bottom: 20px;
+			left: 20px;
 
-			// Show/hide the project items based on the selected category
-			projectItems.forEach(projectItem => {
-				const itemCategories = projectItem.dataset.categories.split(' ');
-				if (
-					selectedCategory === 'all' ||
-					itemCategories.includes(selectedCategory)
-				) {
-					projectItem.style.display = 'block';
-				} else {
-					projectItem.style.display = 'none';
+			color: inherit;
+		}
+		.options {
+			display: flex;
+			flex-direction: row;
+			align-items: stretch;
+			overflow: hidden;
+
+			min-width: 600px;
+			max-width: 900px;
+			width: calc(100% - 100px);
+
+			height: 400px;
+
+			@for $i from 1 through 4 {
+				@media screen and (max-width: 798px - $i*80) {
+					min-width: 600px - $i * 80;
+					.option:nth-child(#{6-$i}) {
+						display: none;
+					}
 				}
+			}
+
+			.option {
+				position: relative;
+				overflow: hidden;
+
+				min-width: 60px;
+				margin: 10px;
+				//border:0px solid --defaultColor;
+
+				background: var(--optionBackground, var(--defaultBackground, #e6e9ed));
+				background-size: auto 120%;
+				background-position: center;
+
+				cursor: pointer;
+
+				transition: 0.5s cubic-bezier(0.05, 0.61, 0.41, 0.95);
+
+				@for $i from 1 through length($optionDefaultColours) {
+					&:nth-child(#{$i}) {
+						--defaultBackground: #{nth($optionDefaultColours, $i)};
+					}
+				}
+				&.active {
+					flex-grow: 10000;
+					transform: scale(1);
+
+					max-width: 600px;
+					margin: 0px;
+					border-radius: 40px;
+
+					background-size: auto 100%;
+					.shadow {
+						box-shadow: inset 0 -120px 120px -120px black,
+							inset 0 -120px 120px -100px black;
+					}
+					.label {
+						bottom: 20px;
+						left: 20px;
+						.info > div {
+							left: 0px;
+							opacity: 1;
+						}
+					}
+					/*&:active {
+               transform:scale(0.9);
+            }*/
+				}
+				&:not(.active) {
+					flex-grow: 1;
+
+					border-radius: 30px;
+					.shadow {
+						bottom: -40px;
+						box-shadow: inset 0 -120px 0px -120px black,
+							inset 0 -120px 0px -100px black;
+					}
+					.label {
+						bottom: 10px;
+						left: 10px;
+						.info > div {
+							left: 20px;
+							opacity: 0;
+						}
+					}
+				}
+				.shadow {
+					position: absolute;
+					bottom: 0px;
+					left: 0px;
+					right: 0px;
+
+					height: 120px;
+
+					transition: 0.5s cubic-bezier(0.05, 0.61, 0.41, 0.95);
+				}
+				.label {
+					display: flex;
+					position: absolute;
+					right: 0px;
+
+					height: 40px;
+					transition: 0.5s cubic-bezier(0.05, 0.61, 0.41, 0.95);
+					.icon {
+						display: flex;
+						flex-direction: row;
+						justify-content: center;
+						align-items: center;
+
+						min-width: 40px;
+						max-width: 40px;
+						height: 40px;
+						border-radius: 100%;
+
+						background-color: white;
+						color: var(--defaultBackground);
+					}
+					.info {
+						display: flex;
+						flex-direction: column;
+						justify-content: center;
+
+						margin-left: 10px;
+
+						color: white;
+
+						white-space: pre;
+						> div {
+							position: relative;
+
+							transition: 0.5s cubic-bezier(0.05, 0.61, 0.41, 0.95),
+								opacity 0.5s ease-out;
+						}
+						.main {
+							font-weight: bold;
+							font-size: 1.2rem;
+						}
+						.sub {
+							transition-delay: 0.1s;
+						}
+					}
+				}
+			}
+		}
+	}
+</style>
+
+<script>
+	const options = document.querySelectorAll('.option');
+	options.forEach(function (option) {
+		option.addEventListener('click', function () {
+			options.forEach(function (opt) {
+				opt.classList.remove('active');
 			});
+			this.classList.add('active');
 		});
 	});
 </script>
