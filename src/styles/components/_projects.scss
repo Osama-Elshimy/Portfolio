@@ -1,3 +1,5 @@
+@import './mixins';
+
 img,
 svg {
 	max-width: 100%;
@@ -5,6 +7,7 @@ svg {
 
 .projects {
 	grid-template-columns: 1fr;
+
 	h3 {
 		grid-column: 1 / -1;
 		margin-inline: auto;
@@ -42,8 +45,6 @@ svg {
 		gap: 1.2rem;
 		height: 40rem;
 		width: 85vw;
-
-		// min-width: 80rem;
 	}
 }
 
@@ -56,19 +57,65 @@ svg {
 	padding-right: calc(var(--_panel-padding) * 4);
 	border-radius: calc(((var(--_panel-padding) * 2) + var(--_button-size)) / 2);
 	cursor: pointer;
-}
 
-.accordion-panel:nth-of-type(odd) {
-	--_panel-color: hsl(160, 70%, 50%);
-}
+	&:nth-of-type(odd) {
+		--_panel-color: hsl(160, 70%, 50%);
+	}
 
-.accordion-panel:nth-of-type(even) {
-	--_panel-color: hsl(184, 70%, 50%);
-}
+	&:nth-of-type(even) {
+		--_panel-color: hsl(184, 70%, 50%);
+	}
 
-.accordion-panel:has([aria-expanded='true']) {
-	flex-basis: clamp(10rem, 30vh, 15rem);
-	flex-grow: 1;
+	&:has([aria-expanded='true']) {
+		flex-basis: clamp(10rem, 30vh, 15rem);
+		flex-grow: 1;
+	}
+
+	&:focus-within {
+		outline: 3px solid var(--_panel-color);
+		outline-offset: 4px;
+	}
+
+	&:has([aria-expanded='true']):hover .accordion-title {
+		@include showElement();
+	}
+
+	&:has([aria-expanded='true']):hover .accordion-image {
+		filter: brightness(0.3);
+	}
+
+	&:has([aria-expanded='true']):hover p {
+		@include showElement();
+	}
+
+	&:has([aria-expanded='true']):hover a {
+		@include showElement();
+	}
+
+	.accordion-title {
+		@include hideElement();
+
+		color: var(--color-white);
+		font-size: var(--font-size-24);
+		font-weight: var(--font-weight-bold);
+
+		position: relative;
+		isolation: isolate;
+
+		display: grid;
+		align-items: center;
+	}
+
+	.accordion-trigger {
+		display: flex;
+		align-items: center;
+		gap: var(--_panel-gap);
+		flex-direction: row-reverse;
+		background: transparent;
+		border: 0;
+		padding: 0;
+		outline: 0;
+	}
 }
 
 @media (max-width: 50em) {
@@ -77,34 +124,33 @@ svg {
 	}
 }
 
-.accordion-trigger {
-	outline: 0;
-}
-
-.accordion-panel:focus-within {
-	outline: 3px solid var(--_panel-color);
-	outline-offset: 4px;
-}
-
 .accordion-content {
 	display: flex;
 	flex-direction: column;
 	align-items: center;
 	justify-content: center;
-	p {
-		transform: translateY(2rem);
-		opacity: 0;
-		visibility: hidden;
-		pointer-events: none;
 
-		margin-top: 13rem;
+	p {
+		@include hideElement();
+		color: var(--color-white);
+		font-size: var(--font-size-22);
+
 		transition: all var(--transition-timing);
 	}
 
+	.accordion-links {
+		margin-top: 13rem;
+		display: flex;
+		gap: 1.2rem;
+	}
+
 	a:is(:link, :visited) {
+		@include hideElement();
+
 		display: flex;
 		align-items: center;
 		gap: 1.2rem;
+
 		color: var(--color-white);
 		font-size: var(--font-size-20);
 
@@ -115,24 +161,13 @@ svg {
 		color: var(--color-green);
 	}
 
-	&:has(a:hover) .accordion-image {
-		// filter: brightness(0.1);
+	.github-link > svg path {
+		transition: all var(--transition-timing);
 	}
 
-	svg {
-		width: 3.6rem;
+	.github-link:hover > svg path {
+		fill: var(--color-green);
 	}
-}
-
-.accordion-title {
-	font-size: var(--font-size-15);
-	font-weight: var(----font-weight-bold);
-
-	position: relative;
-	isolation: isolate;
-
-	display: grid;
-	align-items: center;
 }
 
 .accordion-image {
@@ -143,30 +178,8 @@ svg {
 	object-fit: cover;
 	z-index: -1;
 
-	transition: filter 500ms;
+	transition: all 500ms;
 	cursor: pointer;
-}
-
-.accordion-panel:has([aria-expanded='true']):hover {
-	/* TODO: ONLY WHEN HOVERED OVER */
-	filter: brightness(0.3);
-}
-
-.accordion-panel:has([aria-expanded='true']):hover p {
-	transform: translateY(0);
-	opacity: 1;
-	visibility: visible;
-	pointer-events: auto;
-}
-
-.accordion-trigger {
-	display: flex;
-	align-items: center;
-	gap: var(--_panel-gap);
-	flex-direction: row-reverse;
-	background: transparent;
-	border: 0;
-	padding: 0;
 }
 
 .accordion-icon {
