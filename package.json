@@ -7,11 +7,19 @@
 		"start": "astro dev",
 		"build": "astro build",
 		"preview": "astro preview",
-		"astro": "astro"
+		"astro": "astro",
+		"postcss:watch": "postcss src/styles/style.css --dir public/styles"
 	},
 	"dependencies": {
 		"@astrojs/netlify": "^2.3.0",
 		"astro": "^2.6.4",
 		"sass": "^1.63.3"
+	},
+	"devDependencies": {
+		"postcss": "^8.4.24",
+		"postcss-cli": "^10.1.0",
+		"autoprefixer": "^10.4.14",
+		"cssnano": "^6.0.1",
+		"postcss-preset-env": "^8.5.0"
 	}
 }
