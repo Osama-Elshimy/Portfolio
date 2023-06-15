@@ -7,11 +7,6 @@ html:has(.toggle__checkbox:checked) {
 	--color-input-border: var(--color-white);
 }
 
-html:has(.toggle__checkbox:checked) .contact__social svg path {
-	fill: var(--color-white);
-}
-
-html:has(.toggle__checkbox:checked) .contact__input,
-html:has(.toggle__checkbox:checked) .contact__input::placeholder {
-	color: var(--color-white);
+html:has(.toggle__checkbox:checked) .certificate__description {
+	background-color: rgb(255, 255, 255, 0.9);
 }

@@ -14,6 +14,12 @@
 	&__email {
 		font-weight: var(--font-weight-bold);
 		margin: 2.5rem 0;
+		transition: all var(--transition-timing);
+
+		&:hover {
+			text-decoration: underline;
+			transform: scale(1.1);
+		}
 	}
 
 	&__socials {
@@ -24,6 +30,10 @@
 	&__social {
 		transition: var(--transition-timing);
 		transform: scale(1.2);
+
+		path {
+			fill: var(--color-text);
+		}
 	}
 
 	&__social:hover {
@@ -41,6 +51,12 @@
 		background: transparent;
 		border-bottom: 0.1rem solid var(--color-input-border);
 		flex: 1;
+		color: var(--color-text);
+
+		&::placeholder {
+			color: var(--color-text);
+			opacity: 0.6;
+		}
 	}
 
 	&__textarea {

@@ -24,7 +24,7 @@ const { projectName, projectDescription, imageSrc, projectURL, codeURL } =
 		class='accordion-content'
 		id='panel2-content'>
 		<div class='accordion-links'>
-			<a href={projectURL} target='_blank' alt=`${projectName} link`>
+			<a href={projectURL} target='_blank'>
 				<svg
 					xmlns='http://www.w3.org/2000/svg'
 					width='36'
@@ -68,6 +68,11 @@ const { projectName, projectDescription, imageSrc, projectURL, codeURL } =
 		<p>
 			{projectDescription}
 		</p>
-		<img class='accordion-image' src={imageSrc} alt={projectName} />
+		<img
+			class='accordion-image'
+			src={imageSrc}
+			alt={projectName}
+			loading='lazy'
+		/>
 	</div>
 </div>
