@@ -28,7 +28,7 @@
 	transition: all var(--transition-timing);
 
 	&:hover {
-		text-shadow: 0 0 5px var(--color-green);
+		text-shadow: 0 0 20px var(--color-green);
 	}
 
 	&:hover > div {

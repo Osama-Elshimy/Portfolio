@@ -1,10 +1,9 @@
 <header class='header'>
-	<label class='burger-menu' for='menu'>
+	<button class='burger-menu'>
 		<div class='burger-menu__bar'></div>
 		<div class='burger-menu__bar'></div>
 		<div class='burger-menu__bar'></div>
-	</label>
-	<input type='checkbox' id='menu' class='burger-menu__checkbox' />
+	</button>
 
 	<nav class='navigation'>
 		<ul class='navigation__list'>
@@ -38,3 +37,26 @@
 		<label for='toggle' class='toggle__label'></label>
 	</div>
 </header>
+
+<script>
+	const nav = document.querySelector('.navigation');
+	const navBtn = document.querySelector('.burger-menu');
+	const navBtnBars = document.querySelectorAll('.burger-menu__bar');
+
+	navBtn.addEventListener('click', function (e) {
+		nav.classList.toggle('active');
+		navBtnBars.forEach(bar => {
+			bar.classList.toggle('hidden');
+		});
+	});
+
+	nav.addEventListener('click', function (e) {
+		if (!e.target.classList.contains('navigation__link')) return;
+
+		nav.classList.remove('active');
+
+		navBtnBars.forEach(bar => {
+			bar.classList.remove('hidden');
+		});
+	});
+</script>

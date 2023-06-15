@@ -1,3 +1,5 @@
+@import './mixins';
+
 @media (max-width: 1000px) {
 	html {
 		font-size: 8px;
@@ -96,23 +98,18 @@
 		width: 4.375rem;
 		background-color: var(--color-text);
 		transition: var(--transition-timing);
-	}
 
-	.burger-menu__checkbox:checked + .navigation {
-		top: 100%;
-	}
+		&:nth-child(1).hidden {
+			transform: translateY(10px) rotate(40deg);
+		}
 
-	.header:has(.burger-menu__checkbox:checked) .burger-menu__bar:nth-child(1) {
-		transform: translateY(10px) rotate(40deg);
-	}
+		&:nth-child(2).hidden {
+			@include hideElement();
+		}
 
-	.header:has(.burger-menu__checkbox:checked) .burger-menu__bar:nth-child(2) {
-		opacity: 0;
-		visibility: hidden;
-	}
-
-	.header:has(.burger-menu__checkbox:checked) .burger-menu__bar:nth-child(3) {
-		transform: translateY(-7px) rotate(-40deg);
+		&:nth-child(3).hidden {
+			transform: translateY(-7px) rotate(-40deg);
+		}
 	}
 
 	.navigation {
@@ -123,6 +120,10 @@
 		border-bottom: 0.1rem solid var(--color-text);
 		z-index: -1;
 		width: 100vw;
+	}
+
+	.navigation.active {
+		top: 100%;
 	}
 
 	.navigation__list {
