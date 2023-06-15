@@ -142,7 +142,7 @@
 
 		.certificate__link--text:hover ~ .certificate__description {
 			@include showElement();
-			transform: translateY(-10rem);
+			transform: translateY(-12rem);
 		}
 	}
 
