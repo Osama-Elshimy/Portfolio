@@ -15,8 +15,6 @@ body,
 }
 
 .container {
-	display: grid;
-	row-gap: 11rem;
 	margin: 0 auto;
 	max-width: calc(var(--container-width) + calc(var(--gutter) * 2));
 	padding-inline: var(--gutter);
@@ -37,6 +35,7 @@ body,
 	display: grid;
 	grid-template-columns: repeat(2, auto);
 	align-items: start;
+	margin-bottom: 11rem;
 }
 
 .section--with-bg {

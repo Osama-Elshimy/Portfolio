@@ -124,6 +124,12 @@ svg {
 	}
 }
 
+@media (min-width: 85em) {
+	.accordion-panel:has([aria-expanded='true']) {
+		max-width: 70rem;
+	}
+}
+
 .accordion-content {
 	display: flex;
 	flex-direction: column;
