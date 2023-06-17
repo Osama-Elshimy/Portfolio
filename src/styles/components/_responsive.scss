@@ -2,16 +2,22 @@
 
 @media (max-width: 1000px) {
 	html {
-		font-size: 8px;
+		font-size: 50%;
+	}
+
+	.container {
+		display: grid;
+		row-gap: 11rem;
+	}
+
+	.header,
+	.section {
+		margin-bottom: 0;
 	}
 
 	.bio__pic-content::before {
 		transform: translate(-6.3px, -2.5px);
 	}
-
-	// .skills {
-	// 	grid-template-columns: 1fr 2fr;
-	// }
 }
 
 @media (max-width: 800px) {
@@ -147,5 +153,20 @@
 
 	.bio__pic-content::before {
 		height: 40rem;
+	}
+
+	.h2-heading {
+		font-size: var(--font-size-50);
+		text-align: center;
+	}
+
+	.h3-heading {
+		font-size: var(--font-size-30);
+	}
+}
+
+@media (max-width: 400px) {
+	.bio__pic {
+		width: auto;
 	}
 }
