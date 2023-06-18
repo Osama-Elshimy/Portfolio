@@ -8,7 +8,7 @@
 		"build": "astro build",
 		"preview": "astro preview",
 		"astro": "astro",
-		"postcss:watch": "postcss src/styles/style.css --dir public/styles"
+		"postcss": "postcss src/styles/style.css --dir public/styles"
 	},
 	"devDependencies": {
 		"astro": "^1.0.0",

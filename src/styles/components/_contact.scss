@@ -2,8 +2,6 @@
 
 .contact {
 	@include twoColumns(20rem, 0);
-	// grid-template-columns: repeat(2, 1fr);
-	// column-gap: 20rem;
 	align-items: center;
 
 	&__description {
@@ -108,5 +106,14 @@
 		content: '*';
 		font-size: var(--font-size-38);
 		color: var(--color-red);
+	}
+	.hidden {
+		clip: rect(0 0 0 0);
+		clip-path: inset(50%);
+		height: 1px;
+		overflow: hidden;
+		position: absolute;
+		white-space: nowrap;
+		width: 1px;
 	}
 }
