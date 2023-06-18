@@ -10,19 +10,16 @@
 		"astro": "astro",
 		"postcss:watch": "postcss src/styles/style.css --dir public/styles"
 	},
-	"dependencies": {
-		"cypress": "^10.0.3"
-	},
 	"devDependencies": {
 		"astro": "^1.0.0",
-		"eslint": "^8.18.0",
-		"prettier": "^2.7.1",
-		"prettier-plugin-astro": "^0.10.0",
 		"autoprefixer": "^10.4.14",
 		"cssnano": "^6.0.1",
+		"eslint": "^8.18.0",
 		"postcss": "^8.4.24",
 		"postcss-cli": "^10.1.0",
 		"postcss-preset-env": "^8.5.0",
+		"prettier": "^2.7.1",
+		"prettier-plugin-astro": "^0.10.0",
 		"sass": "^1.63.3"
 	}
 }
