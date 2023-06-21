@@ -40,16 +40,8 @@ body,
 
 .section--with-bg {
 	padding: 11rem 0;
-}
-
-.section--with-bg::before {
-	content: '';
-	position: absolute;
-	height: 100%;
-	width: 100vw;
-	background-color: var(--color-grey);
-	justify-self: center;
-	z-index: -1;
+	box-shadow: 0 0 0 100vmax var(--color-grey);
+	clip-path: inset(0 -100vmax);
 }
 
 .h2-heading {

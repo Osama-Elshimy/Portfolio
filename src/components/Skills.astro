@@ -12,7 +12,7 @@ import mongodb from './../../public/images/skills/mongodb.svg';
 const certificates = [
 	{
 		id: '1',
-		skill: 'Programming Foundations',
+		skill: 'programming-foundations',
 		src: 'https://drive.google.com/file/d/1uU88gevPiYKvr22nXrr4LTTyc57e09SZ/view?usp=sharing',
 		name: 'Programming Foundations',
 		platform: 'LinkedIn Learning',
@@ -21,7 +21,7 @@ const certificates = [
 
 	{
 		id: '2',
-		skill: 'HTML & CSS',
+		skill: 'html-css',
 		src: 'https://drive.google.com/file/d/1QdEIL8tFLGxGr7vZ18TmgcK_hE6GKsAJ/view?usp=sharing',
 		name: 'Build Responsive Real-World Website With HTML & CSS',
 		platform: 'Udemy',
@@ -30,7 +30,7 @@ const certificates = [
 
 	{
 		id: '3',
-		skill: 'Git & GitHub',
+		skill: 'git',
 		src: 'https://drive.google.com/file/d/1rkWLt_yjRucypZ88T7t0T2scMhd00gOu/view?usp=sharing',
 		name: 'Learn Git & GitHub',
 		platform: 'Almdrasa',
@@ -39,7 +39,7 @@ const certificates = [
 
 	{
 		id: '4',
-		skill: 'JavaScript',
+		skill: 'javascript',
 		src: 'https://drive.google.com/file/d/1T7s56odkmdoaKcQKdOGNIsNHBD_njK89/view?usp=sharing',
 		name: 'The Complete JavaScript Course 2023: From Zero to Expert!',
 		platform: 'Udemy',
@@ -48,7 +48,7 @@ const certificates = [
 
 	{
 		id: '5',
-		skill: 'JavaScirpt Projects',
+		skill: 'javascript',
 		src: 'https://www.udemy.com/certificate/UC-1ed65d26-8887-479c-ba65-818a5ebf60d7/',
 		name: '20 Web Projects With Vanilla JavaScript',
 		platform: 'Udemy',
@@ -57,7 +57,7 @@ const certificates = [
 
 	{
 		id: '6',
-		skill: 'ReactJs',
+		skill: 'react',
 		src: 'https://www.udemy.com/certificate/UC-755a4350-8ea8-4efb-9b45-7b658996e0a6/',
 		name: 'React - The Complete Guide 2023 (incl. React Router & Redux)',
 		platform: 'Udemy',
@@ -65,7 +65,7 @@ const certificates = [
 	},
 	{
 		id: '7',
-		skill: 'NodeJS',
+		skill: 'node',
 		src: 'https://drive.google.com/file/d/1QgYjTT2iGSottOWMKVsxnGj428Ezfy5Q/view?usp=sharing',
 		name: 'NodeJS - The Complete Guide (MVC, REST APIs, GraphQL, Deno)',
 		platform: 'Udemy',
@@ -73,7 +73,7 @@ const certificates = [
 	},
 	{
 		id: '8',
-		skill: 'Advanced CSS & SASS',
+		skill: 'sass',
 		src: 'https://drive.google.com/file/d/1C2euwUNHhY9lB_isePGTjP-ynPytroL3/view?usp=sharing',
 		name: 'Advanced CSS & SASS',
 		platform: 'Almdrasa',
@@ -145,7 +145,7 @@ const certificates = [
 		{
 			certificates.map(cert => {
 				return (
-					<li>
+					<li data-skill={cert.skill}>
 						<a
 							class='certificate__link certificate__link--svg'
 							href={cert.src}
