@@ -91,11 +91,11 @@
 	display: none; /* ✅ */
 }
 
-.toggle__checkbox:checked + .toggle__label {
+.toggle__checkbox.checked + .toggle__label {
 	background: var(--color-white); /* ✅ */
 }
 
-.toggle__checkbox:checked + .toggle__label::after {
+.toggle__checkbox.checked + .toggle__label::after {
 	transform: translateX(2.1rem); /* ✅ */
 	background: var(--color-green); /* ✅ */
 }
