@@ -1,4 +1,4 @@
-@import './mixins';
+@use './mixins' as *;
 
 .bio {
 	@include twoColumns(7.4rem, 0);

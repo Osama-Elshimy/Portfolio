@@ -1,4 +1,42 @@
 <section id='contact' class='contact section'>
+	<div class='contact__formContent'>
+		<h2 class='h2-heading'>
+			Let’s Work <br />
+			Together!
+		</h2>
+		<form netlify netlify-honeypot name='feedback' method='POST'>
+			<p class='hidden'>
+				<label>
+					Don’t fill this out if you’re human: <input name='bot-field' />
+				</label>
+			</p>
+			<input type='hidden' name='form-name' value='feedback' />
+			<div class='contact__inputs'>
+				<input
+					class='contact__input'
+					type='text'
+					name='name'
+					placeholder='Your Name'
+					required
+				/>
+				<input
+					class='contact__input'
+					type='email'
+					placeholder='Your Email'
+					name='email'
+					required
+				/>
+			</div>
+			<textarea
+				class='contact__input contact__textarea'
+				name='message'
+				placeholder='Your Message'
+				rows='1'
+				required></textarea>
+			<button type='submit' class='contact__button'>Send Message</button>
+		</form>
+	</div>
+
 	<div>
 		<p class='contact__description'>Feel free to reach out to me any time.</p>
 
@@ -40,43 +78,5 @@
 				</svg>
 			</a>
 		</div>
-	</div>
-
-	<div class='contact__formContent'>
-		<h2 class='h2-heading'>
-			Let’s Work <br />
-			Together!
-		</h2>
-		<form netlify netlify-honeypot name='feedback' method='POST'>
-			<p class='hidden'>
-				<label>
-					Don’t fill this out if you’re human: <input name='bot-field' />
-				</label>
-			</p>
-			<input type='hidden' name='form-name' value='feedback' />
-			<div class='contact__inputs'>
-				<input
-					class='contact__input'
-					type='text'
-					name='name'
-					placeholder='Your Name'
-					required
-				/>
-				<input
-					class='contact__input'
-					type='email'
-					placeholder='Your Email'
-					name='email'
-					required
-				/>
-			</div>
-			<textarea
-				class='contact__input contact__textarea'
-				name='message'
-				placeholder='Your Message'
-				rows='1'
-				required></textarea>
-			<button type='submit' class='contact__button'>Send Message</button>
-		</form>
 	</div>
 </section>

@@ -1,4 +1,4 @@
-@import './mixins';
+@use './mixins' as *;
 
 .skills {
 	display: grid;
@@ -113,6 +113,13 @@
 		display: flex;
 		align-items: center;
 
+		&:focus-visible {
+			& > svg {
+				scale: 1.2;
+				fill: var(--color-green);
+			}
+		}
+
 		svg {
 			width: 5rem;
 			fill: var(--color-text);
@@ -141,7 +148,8 @@
 		transition: all var(--transition-timing);
 	}
 
-	.certificate__link--text:hover ~ .certificate__description {
+	.certificate__link--text:is(:hover, :focus-visible)
+		~ .certificate__description {
 		@include showElement();
 		transform: translateY(-12rem);
 	}
