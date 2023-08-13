@@ -47,7 +47,8 @@
 .container:has(#bio:target) .navigation__bio,
 .container:has(#skills:target) .navigation__skills,
 .container:has(#projects:target) .navigation__projects,
-.container:has(#contact:target) .navigation__contact {
+.container:has(#contact:target) .navigation__contact,
+.container:has(#alx:target) .navigation__alx {
 	color: var(--color-blue);
 	text-decoration: underline;
 	font-weight: var(--font-weight-bold);

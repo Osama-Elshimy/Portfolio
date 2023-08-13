@@ -1,0 +1,46 @@
+<section id='alx' class='alx section'>
+	<ul>
+		<li>
+			<a href='https://www.youtube.com/watch?v=iNBwSN0tqes' target='_blank'
+				>Team Video</a
+			>
+		</li>
+		<li>
+			<a
+				href='https://docs.google.com/presentation/d/1P0j0F4lNP6yEMsHO-kblFsz1e6E6cg7fb2KVR_988DE/edit#slide=id.g2599af59dee_2_69'
+				target='_blank'>Team Slides</a
+			>
+		</li>
+		<li>Elevator Pitch || Coming Soon...</li>
+	</ul>
+</section>
+
+<style>
+	section {
+		display: flex;
+		justify-content: center;
+	}
+
+	ul {
+		display: flex;
+		gap: 6.4rem;
+		justify-content: space-between;
+		align-items: center;
+	}
+
+	ul > * {
+		font-size: 3rem;
+	}
+
+	li:last-of-type {
+		font-weight: var(--font-weight-semi-bold);
+	}
+
+	a:is(:link, :visited) {
+		transition: all var(--transition-timing);
+	}
+
+	a:is(:hover, :active, :focus-visible) {
+		color: var(--color-green);
+	}
+</style>
