@@ -11,29 +11,29 @@
 				target='_blank'>Team Slides</a
 			>
 		</li>
-		<li>Elevator Pitch || Coming Soon...</li>
 	</ul>
+
+	<video controls>
+		<source src='public/elevator-pitch.mp4' type='video/mp4' />
+	</video>
 </section>
 
 <style>
-	section {
-		display: flex;
-		justify-content: center;
+	.alx {
+		grid-template-columns: 1fr;
+		place-items: center;
+		row-gap: 6.4rem;
 	}
-
 	ul {
 		display: flex;
 		gap: 6.4rem;
 		justify-content: space-between;
 		align-items: center;
+		margin-inline: auto;
 	}
 
 	ul > * {
-		font-size: 3rem;
-	}
-
-	li:last-of-type {
-		font-weight: var(--font-weight-semi-bold);
+		font-size: var(--font-size-30);
 	}
 
 	a:is(:link, :visited) {
@@ -42,5 +42,9 @@
 
 	a:is(:hover, :active, :focus-visible) {
 		color: var(--color-green);
+	}
+
+	video {
+		max-width: 100%;
 	}
 </style>
