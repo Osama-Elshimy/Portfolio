@@ -13,12 +13,15 @@
 		</li>
 	</ul>
 
-	<video controls>
-		<source src='/elevator-pitch.mp4' type='video/mp4' />
-	</video>
+	<div>
+		<h3 class='h3-heading'>Elevator Pitch</h3>
+		<video controls>
+			<source src='/elevator-pitch.mp4' type='video/mp4' />
+		</video>
+	</div>
 </section>
 
-<style>
+<style style='sass'>
 	.alx {
 		grid-template-columns: 1fr;
 		place-items: center;
@@ -42,6 +45,16 @@
 
 	a:is(:hover, :active, :focus-visible) {
 		color: var(--color-green);
+	}
+
+	h3 {
+		text-align: center;
+		user-select: none;
+		transition: var(--transition-timing);
+
+		&:hover {
+			text-shadow: 0 0 5px var(--color-green);
+		}
 	}
 
 	video {
