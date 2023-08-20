@@ -179,3 +179,9 @@
 		height: 38rem;
 	}
 }
+
+@media (max-height: 600px) {
+	.header {
+		position: relative;
+	}
+}
