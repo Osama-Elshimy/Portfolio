@@ -82,11 +82,13 @@ const { title } = Astro.props;
 
 <script>
 	const htmlElement = document.documentElement;
-	const toggleCheckbox = document.querySelector('.toggle__checkbox');
-	const localStorageKey = 'themePreference';
+	const toggleCheckbox = document.querySelector(
+		'.toggle__checkbox'
+	) as HTMLInputElement;
+	const localStorageKey: string = 'themePreference';
 
 	// Check if the user preference exists in local storage
-	const storedPreference = localStorage.getItem(localStorageKey);
+	const storedPreference: string = localStorage.getItem(localStorageKey);
 	if (storedPreference) {
 		htmlElement.classList.add(storedPreference);
 		toggleCheckbox.classList.add('checked');
@@ -95,14 +97,15 @@ const { title } = Astro.props;
 		toggleCheckbox.classList.remove('checked');
 	}
 
-	toggleCheckbox.addEventListener('click', function (e) {
+	toggleCheckbox.addEventListener('click', function (): void {
 		htmlElement.classList.toggle('has-toggle-checked');
 		toggleCheckbox.classList.toggle('checked');
 
 		// Update the user preference in local storage
-		const isToggleChecked =
+		const isToggleChecked: boolean =
 			htmlElement.classList.contains('has-toggle-checked');
-		const preferenceValue = isToggleChecked ? 'has-toggle-checked' : '';
+
+		const preferenceValue: string = isToggleChecked ? 'has-toggle-checked' : '';
 		localStorage.setItem(localStorageKey, preferenceValue);
 	});
 </script>
