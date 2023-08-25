@@ -20,6 +20,10 @@
 		transform: translate(-6.3px, -2.5px);
 	}
 
+	.skills__list {
+		margin-inline-start: 0;
+	}
+
 	.footer {
 		margin-top: 11rem;
 	}
@@ -180,7 +184,7 @@
 	}
 }
 
-@media (max-height: 600px) {
+@media (max-height: 500px) {
 	.header {
 		position: relative;
 	}
