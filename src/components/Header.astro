@@ -39,6 +39,15 @@
 </header>
 
 <script>
+	const header = document.querySelector('.header') as HTMLElement;
+
+	const navigationLinks = document.querySelectorAll(
+		'.navigation__link'
+	) as NodeListOf<HTMLAnchorElement>;
+	const sections = document.querySelectorAll(
+		'.section'
+	) as NodeListOf<HTMLElement>;
+
 	const nav = document.querySelector('.navigation') as HTMLElement;
 	const navBtn = document.querySelector('.burger-menu') as HTMLButtonElement;
 	const navBtnBars = document.querySelectorAll(
@@ -62,4 +71,20 @@
 			bar.classList.remove('hidden');
 		});
 	});
+
+	const handleScroll = function (): void {
+		const scrollTop: number =
+			window.scrollY || document.documentElement.scrollTop;
+
+		sections.forEach((section, index) => {
+			const sectionTop = section.offsetTop - header.clientHeight - 100;
+
+			if (scrollTop >= sectionTop) {
+				navigationLinks.forEach(link => link.classList.remove('active-link'));
+				navigationLinks[index].classList.add('active-link');
+			}
+		});
+	};
+
+	window.addEventListener('scroll', handleScroll);
 </script>
