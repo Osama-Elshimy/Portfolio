@@ -1,18 +1,5 @@
 ---
-import html from '/images/skills/html.svg';
-import css from '/images/skills/css.svg';
-import sass from '/images/skills/sass.svg';
-import javascript from '/images/skills/js.svg';
-import react from '/images/skills/react.svg';
-import redux from '/images/skills/redux.svg';
-import node from '/images/skills/node.svg';
-import express from '/images/skills/express.svg';
-import mongodb from '/images/skills/mongodb.svg';
-import typescript from '/images/skills/ts.svg';
-import astro from '/images/skills/astro.svg';
-import git from '/images/skills/git.svg';
-
-const certificates = [
+const CERTIFICATES = [
 	{
 		id: '1',
 		skill: 'programming-foundations',
@@ -91,88 +78,43 @@ const certificates = [
 		desc: 'Completed the comprehensive MERN Stack Course on Udemy, where I built the real-world project "Jobify", a job tracking application. This project encompassed all the essential features of a job tracking system, including user authentication, database management, and more. Through this course, I gained practical experience in utilizing the MERN stack to develop dynamic and scalable web applications.',
 	},
 ];
+
+const SKILLS = [
+	{ name: 'HTML', path: '/images/skills/html.svg' },
+	{ name: 'CSS', path: '/images/skills/css.svg' },
+	{ name: 'SASS', path: '/images/skills/sass.svg' },
+	{ name: 'JavaScript', path: '/images/skills/js.svg' },
+	{ name: 'React', path: '/images/skills/react.svg' },
+	{ name: 'Redux', path: '/images/skills/redux.svg' },
+	{ name: 'Node', path: '/images/skills/node.svg' },
+	{ name: 'Express', path: '/images/skills/express.svg' },
+	{ name: 'MongoDB', path: '/images/skills/mongodb.svg' },
+	{ name: 'TypeScript', path: '/images/skills/ts.svg' },
+	{ name: 'Astro', path: '/images/skills/astro.svg' },
+	{ name: 'Git', path: '/images/skills/git.svg' },
+];
 ---
 
 <section id='skills' class='skills section section--with-bg'>
 	<h2 class='h2-heading'>Skills & Certifications</h2>
 	<ul class='skills__list'>
-		<li class='skills__item'>
-			<div>
-				<span>HTML</span>
-				<img src={html} alt='HTML icon' />
-			</div>
-		</li>
-		<li class='skills__item'>
-			<div>
-				<span>CSS</span>
-				<img src={css} alt='CSS icon' />
-			</div>
-		</li>
-		<li class='skills__item'>
-			<div>
-				<span>SAAS</span>
-				<img src={sass} alt='SAAS icon' />
-			</div>
-		</li>
-		<li class='skills__item'>
-			<div>
-				<span>JavaScript</span>
-				<img src={javascript} alt='JavaScript icon' />
-			</div>
-		</li>
-		<li class='skills__item'>
-			<div>
-				<span>React</span>
-				<img src={react} alt='React icon' />
-			</div>
-		</li>
-		<li class='skills__item'>
-			<div>
-				<span>Redux</span>
-				<img src={redux} alt='Redux icon' />
-			</div>
-		</li>
-		<li class='skills__item'>
-			<div>
-				<span>Node</span>
-				<img src={node} alt='Node icon' />
-			</div>
-		</li>
-		<li class='skills__item'>
-			<div>
-				<span>Express</span>
-				<img src={express} alt='Express icon' />
-			</div>
-		</li>
-		<li class='skills__item'>
-			<div>
-				<span>MongoDB</span>
-				<img src={mongodb} alt='MongoDB icon' />
-			</div>
-		</li>
-		<li class='skills__item'>
-			<div>
-				<span>TypeScript</span>
-				<img src={typescript} alt='TypeScript icon' />
-			</div>
-		</li>
-		<li class='skills__item'>
-			<div>
-				<span>Astro</span>
-				<img src={astro} alt='Astro icon' />
-			</div>
-		</li>
-		<li class='skills__item'>
-			<div>
-				<span>Git</span>
-				<img src={git} alt='Git icon' />
-			</div>
-		</li>
+		{
+			SKILLS.map(skill => {
+				return (
+					<li class='skills__item'>
+						<div>
+							<span>{skill.name}</span>
+							<img src={skill.path} alt={`${skill.name} icon`} />
+						</div>
+					</li>
+				);
+			})
+		}
 	</ul>
 
 	<ul class='certificates'>
 		{
-			certificates.map(cert => {
+			CERTIFICATES.map(cert => {
 				return (
 					<li data-skill={cert.skill}>
 						<a
