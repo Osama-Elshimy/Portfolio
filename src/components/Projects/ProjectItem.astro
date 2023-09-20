@@ -4,7 +4,7 @@ const { projectName, projectDescription, imageSrc, projectURL, codeURL } =
 ---
 
 <div class='accordion-panel'>
-	<h2 id='panel2-title'>
+	<h4 id='panel2-title'>
 		<button
 			class='accordion-trigger'
 			aria-expanded='false'
@@ -15,7 +15,7 @@ const { projectName, projectDescription, imageSrc, projectURL, codeURL } =
 				<!-- <use xlink:href='#anchor'></use> -->
 			</svg>
 		</button>
-	</h2>
+	</h4>
 
 	<div
 		role='region'
@@ -47,11 +47,7 @@ const { projectName, projectDescription, imageSrc, projectURL, codeURL } =
 				Live
 			</a>
 
-			<a
-				class='github-link'
-				href={codeURL}
-				target='_blank'
-				alt=`${projectName} repo`>
+			<a class='github-link' href={codeURL} target='_blank'>
 				<svg
 					width='36'
 					height='36'
