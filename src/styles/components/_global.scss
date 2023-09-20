@@ -1,3 +1,5 @@
+@use './mixins' as *;
+
 html {
 	font-size: 62.5%;
 	scroll-behavior: smooth;
@@ -56,4 +58,8 @@ body,
 	font-size: var(--font-size-38);
 	font-weight: var(--font-weight-bold);
 	margin-bottom: 2.5rem;
+}
+
+.section.fade-in > :is(div, ul) {
+	@include fadeInAnimation;
 }

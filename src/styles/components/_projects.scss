@@ -222,3 +222,11 @@ svg {
 		transition: transform 400ms 400ms, opacity 400ms 400ms;
 	}
 }
+
+.accordion:nth-of-type(2n + 1) {
+	translate: -200%;
+}
+
+.accordion:nth-of-type(2n) {
+	translate: 200%;
+}
