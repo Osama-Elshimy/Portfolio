@@ -12,7 +12,7 @@
 		"postcss:watch": "postcss src/styles/style.css --dir public/styles -w"
 	},
 	"devDependencies": {
-		"astro": "^1.0.0",
+		"astro": "^3.0.10",
 		"autoprefixer": "^10.4.14",
 		"cssnano": "^6.0.1",
 		"eslint": "^8.18.0",
