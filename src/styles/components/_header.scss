@@ -50,7 +50,7 @@
 /* Toggle button */
 .toggle {
 	display: flex;
-	gap: 1rem;
+	gap: 1.2rem;
 	margin-left: auto;
 }
 
@@ -82,10 +82,6 @@
 		translate var(--transition-timing);
 }
 
-.toggle__checkbox {
-	display: none;
-}
-
 .toggle__checkbox.checked + .toggle__label {
 	background: var(--color-white);
 }
@@ -93,4 +89,10 @@
 .toggle__checkbox.checked + .toggle__label::after {
 	translate: 2.1rem;
 	background: var(--color-green);
+}
+
+.toggle__checkbox:is(:focus-visible) + .toggle__label {
+	outline: 2px solid var(--color-text);
+	outline-offset: 0.3rem;
+	scale: 1.1;
 }
