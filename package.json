@@ -2,11 +2,6 @@
   "name": "portfolio",
   "type": "module",
   "version": "0.0.1",
-  "pnpm": {
-    "overrides": {
-      "zod-to-json-schema": "3.23.3"
-    }
-  },
   "scripts": {
     "dev": "astro dev",
     "start": "astro dev",
@@ -17,15 +12,24 @@
     "postcss:watch": "postcss src/styles/style.css --dir public/styles -w"
   },
   "devDependencies": {
-    "astro": "^4.16.7",
-    "autoprefixer": "^10.4.14",
-    "cssnano": "^6.0.1",
-    "eslint": "^9.13.0",
-    "postcss": "^8.4.24",
-    "postcss-cli": "^10.1.0",
-    "postcss-preset-env": "^8.5.0",
-    "prettier": "^3.3.2",
-    "prettier-plugin-astro": "^0.10.0",
-    "sass": "^1.63.3"
+    "astro": "^5.13.2",
+    "autoprefixer": "^10.4.21",
+    "cssnano": "^7.1.0",
+    "eslint": "^9.33.0",
+    "postcss": "^8.5.6",
+    "postcss-cli": "^11.0.1",
+    "postcss-preset-env": "^10.2.4",
+    "prettier": "^3.6.2",
+    "prettier-plugin-astro": "^0.14.1",
+    "sass": "^1.90.0"
+  },
+  "pnpm": {
+    "overrides": {
+      "zod-to-json-schema": "3.23.3"
+    },
+    "onlyBuiltDependencies": [
+      "esbuild",
+      "sharp"
+    ]
   }
 }
