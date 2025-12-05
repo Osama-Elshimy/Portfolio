@@ -20,10 +20,5 @@ pnpm-debug.log*
 # macOS-specific files
 .DS_Store
 
-.vscode/
-*.zip
-src/styles/style.css
-src/styles/style.css.map
-
-# Local Netlify folder
-.netlify
+# jetbrains setting folder
+.idea/

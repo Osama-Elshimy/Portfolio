@@ -1,118 +1,83 @@
 ---
-import '../styles/style.scss';
+import "../styles/global.css";
 
-import Footer from '../components/Footer.astro';
-export interface Props {
-	title: string;
+interface Props {
+  title?: string;
+  description?: string;
 }
 
-const { title } = Astro.props;
+const { title = "Osama Elshimy", description = "Software Engineer" } =
+  Astro.props;
 ---
 
-<!DOCTYPE html>
-<html lang='en'>
-	<head>
-		<meta charset='UTF-8' />
-		<meta http-equiv='X-UA-Compatible' content='IE=edge' />
-		<meta name='viewport' content='width=device-width, initial-scale=1.0' />
-
-		<meta
-			name='description'
-			content="Welcome to my portfolio! I'm a skilled full stack MERN (MongoDB, Express.js, React, Node.js) developer. I specialize in building robust and scalable web applications. With my strong understanding of both front-end and back-end technologies, I can create dynamic and responsive solutions. Explore my portfolio to see my work and learn more about how I can help bring your projects to life."
-		/>
-
-		<meta name='author' content='Osama Elshimy' />
-
-		<meta
-			name='keywords'
-			content='full stack MERN developer, web development, MongoDB, Express.js, React, Node.js, front-end, back-end, responsive design, database, JavaScript'
-		/>
-
-		<link rel='preconnect' href='https://fonts.googleapis.com' />
-		<link rel='preconnect' href='https://fonts.gstatic.com' crossorigin />
-		<link
-			href='https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Raleway:wght@400;500;600;700&display=swap'
-			rel='stylesheet'
-		/>
-
-		<!-- Favicons -->
-		<link rel='icon' type='image/x-icon' href='/favicon.svg' />
-
-		<link
-			rel='icon'
-			type='image/png'
-			sizes='192x192'
-			href='/favicons/android-chrome-192x192.png'
-		/>
-		<link
-			rel='icon'
-			type='image/png'
-			sizes='512x512'
-			href='/favicons/android-chrome-512x512.png'
-		/>
-
-		<link
-			rel='apple-touch-icon'
-			sizes='180x180'
-			href='/favicons/apple-touch-icon.png'
-		/>
-		<link
-			rel='icon'
-			type='image/png'
-			sizes='32x32'
-			href='/favicons/favicon-32x32.png'
-		/>
-		<link
-			rel='icon'
-			type='image/png'
-			sizes='16x16'
-			href='/favicons/favicon-16x16.png'
-		/>
-		<link rel='manifest' href='/favicons/site.webmanifest' />
-
-		<title>{title}</title>
-	</head>
-	<body>
-			<slot />
-	</body>
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="generator" content={Astro.generator} />
+    <meta name="description" content={description} />
+    <title>{title}</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body
+    class="min-h-screen bg-background font-sans antialiased selection:bg-purple-500/20 selection:text-purple-500"
+  >
+    <div
+      class="fixed inset-0 -z-10 h-full w-full bg-background bg-[radial-gradient(ellipse_80%_80%_at_50%_-20%,rgba(120,119,198,0.3),rgba(255,255,255,0))]"
+    >
+    </div>
+    <slot />
+  </body>
 </html>
 
-<script>
-	const htmlElement = document.documentElement;
-	const toggleCheckbox = document.querySelector(
-		'.toggle__checkbox'
-	) as HTMLInputElement;
-	const localStorageKey: string = 'themePreference';
+<script is:inline>
+  const getThemePreference = () => {
+    if (typeof localStorage !== "undefined" && localStorage.getItem("theme")) {
+      return localStorage.getItem("theme");
+    }
+    return window.matchMedia("(prefers-color-scheme: dark)").matches
+      ? "dark"
+      : "light";
+  };
+  const isDark = getThemePreference() === "dark";
+  document.documentElement.classList[isDark ? "add" : "remove"]("dark");
 
-	// Check if the user preference exists in local storage
-	const storedPreference: string = localStorage.getItem(localStorageKey);
-	if (storedPreference) {
-		htmlElement.classList.add(storedPreference);
-		toggleCheckbox.classList.add('checked');
-	} else {
-		htmlElement.classList.remove('has-toggle-checked');
-		toggleCheckbox.classList.remove('checked');
-	}
-
-	toggleCheckbox.addEventListener('click', function (): void {
-		htmlElement.classList.toggle('has-toggle-checked');
-		toggleCheckbox.classList.toggle('checked');
-
-		// Update the user preference in local storage
-		const isToggleChecked: boolean =
-			htmlElement.classList.contains('has-toggle-checked');
-
-		const preferenceValue: string = isToggleChecked ? 'has-toggle-checked' : '';
-		localStorage.setItem(localStorageKey, preferenceValue);
-	});
-
-	// Fade in animation
-	const observer = new IntersectionObserver(entries => {
-		entries.forEach(entry => {
-			if (entry.isIntersecting) entry.target.classList.add('fade-in');
-		});
-	});
-
-	const allSections = document.querySelectorAll('section');
-	allSections.forEach(section => observer.observe(section));
+  if (typeof localStorage !== "undefined") {
+    const observer = new MutationObserver(() => {
+      const isDark = document.documentElement.classList.contains("dark");
+      localStorage.setItem("theme", isDark ? "dark" : "light");
+    });
+    observer.observe(document.documentElement, {
+      attributes: true,
+      attributeFilter: ["class"],
+    });
+  }
 </script>
+
+<style>
+  html,
+  body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    scroll-behavior: smooth;
+  }
+
+  :root {
+    --transition-standard: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  body {
+    transition:
+      background-color var(--transition-standard),
+      color var(--transition-standard);
+  }
+</style>
