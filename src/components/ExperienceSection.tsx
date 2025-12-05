@@ -2,8 +2,8 @@ import { motion } from "framer-motion";
 import { Briefcase } from "lucide-react";
 
 import { workExperience } from "@/lib/data";
-import MotionWrapper from "./MotionWrapper";
-import TimelineItem from "./TimelineItem";
+import { MotionWrapper } from "./MotionWrapper";
+import { TimelineItem } from "./TimelineItem";
 
 export function ExperienceSection() {
   return (
@@ -14,15 +14,16 @@ export function ExperienceSection() {
       <div className="container mx-auto max-w-4xl px-6 md:px-4">
         <MotionWrapper>
           <h2 className="mb-8 flex items-center text-center text-2xl font-bold md:inline-block md:text-left">
-            <motion.span
-              className="mr-2 inline-block"
-              initial={{ rotate: 0 }}
-              whileInView={{ rotate: [0, -10, 10, -5, 5, 0] }}
-              transition={{ duration: 0.5, delay: 0.2 }}
+            <motion.div
+              className="me-2 inline-flex h-8 w-8 items-center justify-center rounded-full bg-purple-500/10"
+              initial={{ scale: 0.8 }}
+              whileInView={{ scale: 1 }}
+              whileHover={{ scale: 1.1, color: "#8b5cf6" }}
+              transition={{ duration: 0.3, delay: 0.2 }}
               viewport={{ once: true }}
             >
-              💼
-            </motion.span>{" "}
+              <Briefcase className="h-5 w-5 text-purple-500" />
+            </motion.div>
             Work Experience
           </h2>
         </MotionWrapper>
@@ -44,7 +45,7 @@ export function ExperienceSection() {
                 viewport={{ once: true }}
               >
                 <div className="mb-3 flex items-center">
-                  <div className="mr-2 flex h-6 w-6 items-center justify-center rounded-full bg-purple-500/10">
+                  <div className="me-2 flex h-6 w-6 items-center justify-center rounded-full bg-purple-500/10">
                     <Briefcase className="h-4 w-4 text-purple-500" />
                   </div>
                   <h4 className="text-sm font-medium">Key Achievements</h4>

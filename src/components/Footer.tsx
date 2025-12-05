@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import { Heart, Laptop } from "lucide-react";
 
 import { personalInfo } from "@/lib/data";
 
@@ -21,7 +22,7 @@ export function Footer() {
             reserved.
           </motion.p>
           <motion.p
-            className="mt-2 text-center text-sm text-muted-foreground md:mt-0 md:text-start"
+            className="mt-2 text-center text-sm text-muted-foreground md:mt-0 md:text-start flex  gap-1"
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             transition={{ delay: 0.2, duration: 0.5 }}
@@ -30,26 +31,18 @@ export function Footer() {
           >
             Built with{" "}
             <motion.span
-              className="inline-block"
-              initial={{ rotate: 0 }}
-              whileHover={{ rotate: 360 }}
-              transition={{ duration: 0.5 }}
+              className="inline-flex h-5 w-5 items-center justify-center"
+              whileHover={{ scale: 1.2, color: "#8b5cf6" }}
+              transition={{ duration: 0.3 }}
             >
-              💻
+              <Laptop className="h-5 w-5" />
             </motion.span>{" "}
             and{" "}
             <motion.span
-              className="inline-block"
-              animate={{
-                scale: [1, 1.2, 1],
-              }}
-              transition={{
-                repeat: Infinity,
-                repeatType: "reverse",
-                duration: 1.5,
-              }}
+              className="inline-flex h-5 w-5 items-center justify-center"
+              whileHover={{ scale: 1.2, color: "#ef4444" }}
             >
-              ❤️
+              <Heart className="h-5 w-5" />
             </motion.span>
           </motion.p>
         </motion.div>

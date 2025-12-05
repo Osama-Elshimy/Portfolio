@@ -1,18 +1,41 @@
 import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
-import { Menu, X } from "lucide-react";
+import {
+  Briefcase,
+  GraduationCap,
+  Handshake,
+  Menu,
+  Rocket,
+  Wrench,
+  X,
+} from "lucide-react";
 
 import { personalInfo } from "@/lib/data";
 import { cn } from "@/lib/utils";
 import { ThemeToggle } from "./ui/theme-toggle";
 
-const sections = [
-  "experience",
-  "skills",
-  // "projects",
-  "education",
-  "volunteering",
-];
+const sections = ["experience", "skills", "education", "volunteering"] as const;
+
+interface SectionIconProps {
+  item: string;
+}
+
+function SectionIcon({ item }: SectionIconProps) {
+  switch (item) {
+    case "experience":
+      return <Briefcase className="me-2 h-4 w-4" />;
+    case "skills":
+      return <Wrench className="me-2 h-4 w-4" />;
+    case "projects":
+      return <Rocket className="me-2 h-4 w-4" />;
+    case "education":
+      return <GraduationCap className="me-2 h-4 w-4" />;
+    case "volunteering":
+      return <Handshake className="me-2 h-4 w-4" />;
+    default:
+      return null;
+  }
+}
 
 export function GlassHeader() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -61,17 +84,13 @@ export function GlassHeader() {
             <motion.a
               key={item}
               href={`#${item}`}
-              className="text-foreground/60 transition-colors hover:text-foreground/80"
+              className="flex items-center text-foreground/60 transition-colors hover:text-foreground/80"
               initial={{ opacity: 0, y: -10 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.2, delay: index * 0.1 }}
-              whileHover={{ y: -2 }}
+              whileHover={{ y: -2, scale: 1.05 }}
             >
-              {item === "experience" && "💼 "}
-              {item === "skills" && "🛠️ "}
-              {item === "projects" && "🚀 "}
-              {item === "education" && "🎓 "}
-              {item === "volunteering" && "‍🤝 "}
+              {<SectionIcon item={item} />}
               {item.charAt(0).toUpperCase() + item.slice(1)}
             </motion.a>
           ))}
@@ -112,14 +131,10 @@ export function GlassHeader() {
               >
                 <a
                   href={`#${item}`}
-                  className="block w-full text-foreground/60 transition-colors hover:text-foreground/80"
+                  className="flex w-full items-center text-foreground/60 transition-colors hover:text-foreground/80"
                   onClick={toggleMenu}
                 >
-                  {item === "experience" && "💼 "}
-                  {item === "skills" && "🛠️ "}
-                  {item === "projects" && "🚀 "}
-                  {item === "education" && "🎓 "}
-                  {item === "volunteering" && "‍🤝 "}
+                  <SectionIcon item={item} />
                   {item.charAt(0).toUpperCase() + item.slice(1)}
                 </a>
               </motion.div>

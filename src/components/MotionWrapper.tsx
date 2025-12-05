@@ -1,4 +1,4 @@
-import type { MotionProps } from "framer-motion";
+import type { MotionProps, Variants } from "framer-motion";
 import React from "react";
 import { motion } from "framer-motion";
 
@@ -8,7 +8,7 @@ interface MotionWrapperProps extends MotionProps {
 }
 
 // Default animations for sections
-const defaultAnimations = {
+const defaultAnimations: Variants = {
   hidden: { opacity: 0, y: 20 },
   visible: (delay: number = 0) => ({
     opacity: 1,
@@ -21,7 +21,7 @@ const defaultAnimations = {
   }),
 };
 
-export default function MotionWrapper({
+export function MotionWrapper({
   children,
   delay = 0,
   ...props

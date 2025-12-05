@@ -12,7 +12,7 @@ interface TimelineItemProps {
   children?: React.ReactNode;
 }
 
-export default function TimelineItem({
+export function TimelineItem({
   title,
   subtitle,
   date,

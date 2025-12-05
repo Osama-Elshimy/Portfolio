@@ -1,10 +1,11 @@
+import type { Variants } from "framer-motion";
 import { motion } from "framer-motion";
 import { Github, Linkedin, Mail, MapPin } from "lucide-react";
 
 import { personalInfo } from "@/lib/data";
-import MotionWrapper from "./MotionWrapper";
+import { MotionWrapper } from "./MotionWrapper";
 
-const containerVariants = {
+const containerVariants: Variants = {
   hidden: { opacity: 0 },
   visible: {
     opacity: 1,
@@ -15,7 +16,7 @@ const containerVariants = {
   },
 };
 
-const childVariants = {
+const childVariants: Variants = {
   hidden: { opacity: 0, y: 20 },
   visible: {
     opacity: 1,
@@ -70,7 +71,7 @@ export function HeroSection() {
                 variants={childVariants}
                 whileHover={{ scale: 1.05, color: "#4b5563" }}
               >
-                <Mail className="mr-2 h-4 w-4" />
+                <Mail className="me-2 h-4 w-4" />
                 {personalInfo.email}
               </motion.a>
 
@@ -82,7 +83,7 @@ export function HeroSection() {
                 variants={childVariants}
                 whileHover={{ scale: 1.05, color: "#4b5563" }}
               >
-                <Github className="mr-2 h-4 w-4" />
+                <Github className="me-2 h-4 w-4" />
                 GitHub
               </motion.a>
 
@@ -94,7 +95,7 @@ export function HeroSection() {
                 variants={childVariants}
                 whileHover={{ scale: 1.05, color: "#4b5563" }}
               >
-                <Linkedin className="mr-2 h-4 w-4" />
+                <Linkedin className="me-2 h-4 w-4" />
                 LinkedIn
               </motion.a>
             </motion.div>
@@ -109,9 +110,10 @@ export function HeroSection() {
             <div className="relative">
               <div className="absolute -inset-1 rounded-full bg-gradient-to-r from-pink-500 to-purple-500 opacity-30 blur transition duration-1000 group-hover:opacity-100 group-hover:duration-200"></div>
               <img
+                decoding="async"
                 src={personalInfo.profilePicture}
                 alt="Profile"
-                className="relative w-48 rounded-full ring-2 ring-purple-500/50 md:w-60"
+                className="relative w-60 rounded-full ring-2 ring-purple-500/50 md:w-80"
                 style={{ objectFit: "cover" }}
               />
             </div>

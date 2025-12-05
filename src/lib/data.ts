@@ -6,7 +6,7 @@ export const personalInfo = {
   linkedin: "https://www.linkedin.com/in/osama-elshimy-639ab6223",
   profilePicture: "/personal-pic.jpg",
   heroDescription:
-    "I'm an enthusiastic front-end engineer with a passion for building web applications. I bring a strong foundation in HTML, CSS, Sass, JavaScript, TypeScript, React, tailwind, Next, Tanstack Start, and Astro. I also have good knowledge of Node, Express, and MongoDB and a commitment to continuous learning. I thrive in collaborative environments, I am eager to contribute, and I am excited to tackle new challenges in web development.",
+    "I'm an enthusiastic front-end engineer with a passion for building web applications. I bring a strong foundation in HTML, CSS, Sass, JavaScript, TypeScript, React, Tailwind, Next, Tanstack Start, and Astro. I also have good knowledge of Node, Express, and MongoDB and a commitment to continuous learning. I thrive in collaborative environments, I am eager to contribute, and I am excited to tackle new challenges in web development.",
 };
 
 export const workExperience = [
@@ -84,7 +84,13 @@ export const skills = {
   toolsAndServices: ["Git", "Bash", "VS Code"],
 };
 
-export const projects = [];
+interface Project {
+  title: string;
+  description: string[];
+  github: string;
+}
+
+export const projects: Project[] = [];
 
 export const volunteering = [
   {
