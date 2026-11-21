@@ -1,22 +1,19 @@
 # My Portfolio
 
-A sleek, responsive portfolio website built with **Astro**, **React**, and **Tailwind CSS**, featuring modern animations and stunning glassmorphism effects.
+A responsive portfolio for Osama Elshimy, built with **Astro**, **React**, and **Tailwind CSS**.
 
-![Portfolio Screenshot](https://github.com/Osama-Elshimy/Portfolio/blob/main/public/assets/portfolio.png)
+![Dark-mode desktop view of Osama Elshimy’s portfolio homepage](./public/portfolio.png)
 
 ## ✨ Features
 
-- **Modern Design** – Clean, professional layout with elegant glassmorphism
-- **Animations** – Smooth transitions and interactive UI via Framer Motion
-- **Dark/Light Mode** – Automatic theme switching with system preference detection
-- **Fully Responsive** – Optimized for mobile, tablet, and desktop
-- **Blazing Fast** – Powered by Astro for superior performance
-- **Modular Structure** – Built for easy customization and scalability
-- **SEO Friendly** – Structured content and meta tags for better visibility
+- Responsive layout with a translucent navigation bar and Lucide icons
+- Entrance animations and hover effects powered by Framer Motion
+- Light and dark themes that default to the system preference, with a toggle that remembers your choice
+- Sections for work experience, skills, education, and volunteering
 
 ## 🚀 Demo
 
-👉 [Live Demo](https://osama-elshimy.netlify.app/)
+👉 [Live Demo](https://osamaelshimy.vercel.app/)
 
 ## 🛠 Getting Started
 
@@ -54,7 +51,7 @@ Visit `http://localhost:4321` in your browser to see it in action.
 
 ## 🧩 Customizing the Portfolio
 
-All your content lives inside `src/lib/data.ts`. Update the following to make it yours:
+Edit the homepage content in [`src/lib/data.ts`](./src/lib/data.ts).
 
 ### 1. Personal Info
 
@@ -65,8 +62,12 @@ export const personalInfo = {
   email: "your.email@example.com",
   github: "https://github.com/yourusername",
   linkedin: "https://www.linkedin.com/in/yourusername/",
+  profilePicture: "/personal-pic.jpg",
+  heroDescription: "A short introduction about your work and interests.",
 };
 ```
+
+Replace `public/personal-pic.jpg` to use your own portrait.
 
 ### 2. Work Experience
 
@@ -82,7 +83,17 @@ export const workExperience = [
 ];
 ```
 
-### 3. Education
+### 3. Skills
+
+```ts
+export const skills = {
+  programmingLanguages: ["TypeScript", "Python"],
+  frontendDevelopment: ["React", "Next.js"],
+  toolsAndServices: ["Git", "Bash"],
+};
+```
+
+### 4. Education
 
 ```ts
 export const education = [
@@ -91,34 +102,11 @@ export const education = [
     location: "Location",
     degree: "Your Degree",
     period: "Start Date - End Date",
-    achievements: ["Achievement 1", "Achievement 2"],
   },
 ];
 ```
 
-### 4. Skills
-
-```ts
-export const skills = {
-  programmingLanguages: ["TypeScript", "Python"],
-  frontendDevelopment: ["React", "Next.js"],
-  // and more...
-};
-```
-
-### 5. Projects
-
-```ts
-export const projects = [
-  {
-    title: "Project Name",
-    github: "https://github.com/yourusername/project",
-    description: ["What it does", "Technologies used"],
-  },
-];
-```
-
-### 6. Volunteering Experience
+### 5. Volunteering Experience
 
 ```ts
 export const volunteering = [
@@ -157,7 +145,7 @@ bun preview
 
 ## 📤 Deployment
 
-Easily deploy to platforms like **Vercel**, **Netlify**, **GitHub Pages**, or any static host of your choice.
+The portfolio is hosted on **Vercel**. The Astro production build writes the static site to `dist/`.
 
 ---
 
