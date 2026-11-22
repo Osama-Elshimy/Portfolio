@@ -9,5 +9,5 @@ export default defineConfig({
   },
 
   integrations: [react()],
-  site: "https://osama-elshimy.netlify.app",
+  site: "https://osamaelshimy.vercel.app/",
 });
