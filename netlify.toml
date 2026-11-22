@@ -6,3 +6,9 @@
 
 [functions]
   node_bundler = "esbuild"
+
+[[redirects]]
+  from = "https://osama-elshimy.netlify.app/*"
+  to = "https://osamaelshimy.vercel.app/"
+  status = 301
+  force = true
